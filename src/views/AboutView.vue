@@ -23,6 +23,4 @@ const showAlert = (id: any) => {
   });
 }
 </script>
-<style>
-
-</style>
+<style></style>

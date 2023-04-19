@@ -115,19 +115,11 @@ const isShowButtonContent = ref<boolean>(false)
 const isShowParagraphContent = ref<boolean>(false)
 
 const configContent = ref<string>('') as any
-// const instances = computed(() => {
-//   if (!items.value.filter((item) => item.list == 2)) {
-//     return 0
-//   }
-//   return items.value.filter((item) => item.list == 2).length
-// })
+
 const updateCoordinates = (event:MouseEvent) => { 
       xCoordinates.value = event.clientX;
       yCoordinates.value = event.clientY;
 }
-
-
-
 
 const changeContent = (content: any) => {
   configContent.value = content
@@ -160,12 +152,6 @@ watch(messageText, (value) => {
   configContent.value.props.message = value
 
 })
-// const listOne = computed(() => {
-//   return items.value.filter((item) => item.list == 1)
-// })
-// const listTwo = computed(() => {
-//   return items.value.filter((item) => item.list == 2)
-// })
 
 const elementOnStarts = ref<string>('')
 const startDrag = (evt: any, item: any) => {
