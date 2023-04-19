@@ -1,0 +1,191 @@
+@import './base.css';
+
+@mixin boder-top-setting {
+  border-top: 1px #ccc solid;
+}
+@mixin boder-left-setting {
+  border-left: 1px #ccc solid;
+}
+header {
+  &.d-none {
+    display: none;
+  }
+}
+$main-font: Serif;
+$base-size: 1rem;
+.btn {
+  cursor: pointer;
+}
+button {
+  &:hover {
+    background: #580408;
+  }
+  .nav-link {
+    cursor: pointer;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+.nav-link {
+  color: white;
+}
+#app {
+  width: 100%;
+  min-width: 1100px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-weight: normal;
+  font-family: $main-font;
+  font-size: $base-size;
+  button {
+    border: 1px #ccc solid; border-radius: .25rem;
+    padding: 0.25rem .5rem;
+    font-family: $main-font;
+    font-size: $base-size;
+  }
+  .home {
+    .action-box {
+      text-align: center;
+      margin: 1rem 0;
+      button {
+        background: #f11621;
+        border: none; border-radius: 0;
+        padding: 0.5rem;
+        color: white;
+        font-family: $main-font;
+        font-size: $base-size;
+      }
+    }
+    .wrap-box {
+      @include boder-top-setting();
+
+      display: flex;
+      width: 100%;
+      height: calc(100vh - 80px);
+      overflow: auto;
+      .left {
+        width: 20%;
+        padding-right: 2rem;
+        &.from {
+          .list-item {
+            margin-top: 1rem;
+            text-align: center;
+            .item {
+              .thumb {
+                border: 1px #ccc solid;
+                width: 2rem;
+                height: 2rem;
+                margin: auto;
+                padding-bottom: .25rem;
+              }
+              &:not(:last-child) {
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+      }
+      .right {
+        width: 80%;
+        &.to {
+          @include boder-left-setting();
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .content-box {
+          padding: 1rem;
+          &.drag-drop-box {
+            display: grid;
+            grid-template-columns: 1fr 2fr ;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+            gap: 1rem;  
+            .view-info-box {
+              .item-drop {
+                &:not(:last-child) {
+                  margin-bottom: .5rem;
+                }
+              }
+            }
+            .dropzone {
+              background-color: #fff;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+              height: 360px;
+              padding: 1rem;
+              transition: background-color 0.25s ease-in;
+              text-align: center;
+
+              &:hover {
+                background-color: #fcfcfc;
+                border-color: #5bc0de;
+              }
+            }
+          }
+          &:nth-child(2) {
+            @include boder-top-setting();
+            margin-top: auto;
+          }
+        }
+      }
+    }
+  }
+  .about {
+    height: 100%;
+    margin: 1rem auto;
+    text-align: center;
+    .view-info-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;  
+}
+
+.grid.equal {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+.ElementButton {
+  background: #eee;
+    border: 1px #ccc solid;
+    border-radius: 0.25rem;
+    padding: 0.05rem 0.05rem;
+    font-family: Serif;
+    font-size: 1rem;
+    width: 4rem;
+    margin: .55rem auto; text-align: center;
+}
