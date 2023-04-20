@@ -37,7 +37,7 @@
           <div class="content-box drag-drop-box">
             <div class="view-info-box">
               <p>
-                <span>Mouse:</span><span> {{ xCoordinates }} / {{ yCoordinates }}</span>
+                <span>Mouse:</span><span> ({{ xCoordinates }} , {{ yCoordinates }})</span>
               </p>
               <p>
                 <span>Dragging:</span><span>{{ elementOnStarts }}</span>
@@ -58,13 +58,6 @@
                 draggable="true"
                 @dragstart="startDrag($event, item)"
               >
-                <!-- <div 
-                  v-on:click="changeContent(item)"
-                  :class="item.component" v-if="item.component == 'ElementButton'">Button</div>
-                <div 
-                  v-on:click="changeContent(item)"
-                  :class="item.component" v-else-if="item.component == 'ElementParagraph'">Paragraph
-                </div> -->
                 <div
                   v-on:click="changeContent(item)"
                   v-text="getText(item)"
@@ -144,6 +137,7 @@ const buttonId = ref('')
 const changeContent = (content: any) => {
   configContent.value = content
   paragraphId.value = content.id
+  buttonId.value = content.id
   listTwo.value.forEach((element) => {
     if (paragraphId.value == element.id) {
       paragraphText.value = element.text
@@ -173,22 +167,9 @@ const save = () => {
 }
 watch(paragraphText, (value) => {
   configContent.value.props.text = value
-  listTwo.value.forEach((element) => {
-    if (element.component == 'ElementParagraph' && paragraphId.value == element.id) {
-      element.text = value
-    }
-    if (element.component == 'ElementButton' && buttonId.value == element.id) {
-      element.text = value
-    }
-  })
 })
 watch(buttonText, (value) => {
   configContent.value.props.text = value
-  listTwo.value.forEach((element) => {
-    if (element.component == 'ElementButton') {
-      element.text = value
-    }
-  })
 })
 watch(messageText, (value) => {
   configContent.value.props.message = value
