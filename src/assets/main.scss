@@ -99,6 +99,7 @@ button {
         .content-box {
           padding: 1rem;
           &.drag-drop-box {
+            min-height: 60vh;
             display: grid;
             grid-template-columns: 1fr 2fr ;
             grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -115,7 +116,6 @@ button {
               border: 1px solid #ddd;
               border-radius: 4px;
               box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-              height: 360px;
               padding: 1rem;
               transition: background-color 0.25s ease-in;
               text-align: center;
@@ -183,9 +183,11 @@ a,
   background: #eee;
     border: 1px #ccc solid;
     border-radius: 0.25rem;
-    padding: 0.05rem 0.05rem;
+    padding: 0.05rem 0.25rem;
     font-family: Serif;
     font-size: 1rem;
-    width: 4rem;
+    width: auto;
+    max-width: 10rem;
+    overflow: hidden;
     margin: .55rem auto; text-align: center;
 }
