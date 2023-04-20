@@ -8,7 +8,7 @@
         <button>Export</button>
         <button>Import</button>
         <button>
-          <RouterLink to="/about" class="nav-link">View</RouterLink>
+          <RouterLink to="/consumer" class="nav-link">View</RouterLink>
         </button>
       </div>
 
